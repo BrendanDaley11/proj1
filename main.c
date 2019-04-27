@@ -203,24 +203,19 @@ char substitutionEncryption(char *string)
             c = alphabetKey[7];
             newStr[i] = c;
         }
-        else if (string[i] == 72)
+        else if (string[i] == 73)
         {
             c = alphabetKey[8];
             newStr[i] = c;
         }
-        else if (string[i] == 73)
+        else if (string[i] == 74)
         {
             c = alphabetKey[9];
             newStr[i] = c;
         }
-        else if (string[i] == 74)
-        {
-            c = alphabetKey[10];
-            newStr[i] = c;
-        }
         else if (string[i] == 75)
         {
-            c = alphabetKey[11];
+            c = alphabetKey[10];
             newStr[i] = c;
         }
         else if (string[i] == 76)
@@ -233,16 +228,77 @@ char substitutionEncryption(char *string)
             c = alphabetKey[12];
             newStr[i] = c;
         }
-        else if (string[i] == 77)
+        else if (string[i] == 78)
         {
             c = alphabetKey[13];
             newStr[i] = c;
         }
-        else if (string[i] == 78)
+        else if (string[i] == 79)
         {
             c = alphabetKey[14];
             newStr[i] = c;
         }
+        else if (string[i] == 80)
+        {
+            c = alphabetKey[15];
+            newStr[i] = c;
+        }
+        else if (string[i] == 81)
+        {
+            c = alphabetKey[16];
+            newStr[i] = c;
+        }
+        else if (string[i] == 82)
+        {
+            c = alphabetKey[17];
+            newStr[i] = c;
+        }
+        else if (string[i] == 83)
+        {
+            c = alphabetKey[18];
+            newStr[i] = c;
+        }
+        else if (string[i] == 84)
+        {
+            c = alphabetKey[19];
+            newStr[i] = c;
+        }
+        else if (string[i] == 85)
+        {
+            c = alphabetKey[20];
+            newStr[i] = c;
+        }
+        else if (string[i] == 86)
+        {
+            c = alphabetKey[21];
+            newStr[i] = c;
+        }
+        else if (string[i] == 87)
+        {
+            c = alphabetKey[22];
+            newStr[i] = c;
+        }
+        else if (string[i] == 88)
+        {
+            c = alphabetKey[23];
+            newStr[i] = c;
+        }
+        else if (string[i] == 89)
+        {
+            c = alphabetKey[24];
+            newStr[i] = c;
+        }
+        else if (string[i] == 90)
+        {
+            c = alphabetKey[25];
+            newStr[i] = c;
+        }
+        else
+        {
+            c = string[i];
+            newStr[i] = c;
+        }
+        
 
         
     }
