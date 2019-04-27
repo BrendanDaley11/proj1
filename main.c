@@ -93,7 +93,14 @@ char rotationDecryption(char *string)
     printf("Please enter your rotation amount: \n");
     scanf("%d", &rotationAmount);
     
-    
+    for (int i = 0; i < 1024; i++)
+    {
+        
+        if (string[i] >= 97 && string[i] <= 122)
+        {
+            string[i] = (string[i] - 32);
+        }
+    }
     
     for (int i = 0; i < 1024; i++)
     {
@@ -122,11 +129,6 @@ char rotationDecryption(char *string)
             c = 91 - rotationAmount;
             newStr[i] = c; 
         }
-        else if (string[i] >= 97 && string[i] <=122)
-        {
-            c = (string[i] - 32) + rotationAmount;
-            newStr[i] = c;
-        }
         
         else
         {
@@ -146,7 +148,6 @@ char substitutionEncryption(char *string)
     char newStr[1024];
     char alphabetKey[] = "QWERTYUIOPASDFGHJKLZXCVBNM";
     char c;
-    int y = 0;
     
     //printf("Please enter your substitution key: \n");
    // scanf("%s", alphabetKey);
@@ -154,15 +155,14 @@ char substitutionEncryption(char *string)
     for (int i = 0; i < 1024; i++)
     {
         
-        if (string[i] => 97 && string[i] <= 122)
+        if (string[i] >= 97 && string[i] <= 122)
         {
-            c = (string[i] - 32);
-            for (int x == 65; x < 90; x++)
-            {
-                if c = x;
-                
-            }
+            string[i] = (string[i] - 32);
         }
+    }
+    
+    for (int i = 0; i < 1024; i++)
+    {
         if (string[i] == 65)
         {
             c = alphabetKey[0];
@@ -183,8 +183,71 @@ char substitutionEncryption(char *string)
             c = alphabetKey[3];
             newStr[i] = c;
         }
+        else if (string[i] == 69)
+        {
+            c = alphabetKey[4];
+            newStr[i] = c;
+        }
+        else if (string[i] == 70)
+        {
+            c = alphabetKey[5];
+            newStr[i] = c;
+        }
+        else if (string[i] == 71)
+        {
+            c = alphabetKey[6];
+            newStr[i] = c;
+        }
+        else if (string[i] == 72)
+        {
+            c = alphabetKey[7];
+            newStr[i] = c;
+        }
+        else if (string[i] == 72)
+        {
+            c = alphabetKey[8];
+            newStr[i] = c;
+        }
+        else if (string[i] == 73)
+        {
+            c = alphabetKey[9];
+            newStr[i] = c;
+        }
+        else if (string[i] == 74)
+        {
+            c = alphabetKey[10];
+            newStr[i] = c;
+        }
+        else if (string[i] == 75)
+        {
+            c = alphabetKey[11];
+            newStr[i] = c;
+        }
+        else if (string[i] == 76)
+        {
+            c = alphabetKey[11];
+            newStr[i] = c;
+        }
+        else if (string[i] == 77)
+        {
+            c = alphabetKey[12];
+            newStr[i] = c;
+        }
+        else if (string[i] == 77)
+        {
+            c = alphabetKey[13];
+            newStr[i] = c;
+        }
+        else if (string[i] == 78)
+        {
+            c = alphabetKey[14];
+            newStr[i] = c;
+        }
+
         
     }
+    printf("%s \n", newStr);
+    
     
     return *newStr;
     
