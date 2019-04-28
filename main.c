@@ -6,7 +6,7 @@ char substitutionEncryption(char *string);
 int main()
 {
     int option; //an integer variable storing the choice inputted by the user for the switch case.
-    char str[1024]; //the char array is created and given the value of arraySize
+    char str[1024]; //the char array is created and given the value of 1024
     printf("Firstly, enter your message to be encrypted/decrypted: \n"); //the message is entered by the user.
     scanf("%[^\n]s", str); //allows for a full sentence to be read ("without [^'\n'] whitespace isn't read and the string is cut off")
     
@@ -14,6 +14,7 @@ int main()
     printf("[1] Encryption of a message with a rotation cipher given the message text and rotation amount\n"); //number in brackets showing which number to enter to select that option
     printf("[2] Decryption of a message encrypted with a rotation cipher given cipher text and rotation amount\n");
     printf("[3] Encryption of a message with a substitution cipher given message text and alphabet substitution\n");
+    printf("[4] Decryption of a message encrypted with a substitution cipher given cipher text and substitutions\n");
     printf("[0] Exit\n");
     printf("Your choice? ");
     scanf("%d", &option); //scanf to allow the user to enter their option (using numbers 1 through 6. 0 terminates the program.)
@@ -23,20 +24,27 @@ int main()
         case 1: rotationEncryption(str); break;
         case 2: rotationDecryption(str); break;
         case 3: substitutionEncryption(str); break;
-        default: printf("Unknown option %d \n Please try again. \n", option);
+        default: printf("Unknown option %d , \n Please try again. \n", option);
     }
 }
 
 char rotationEncryption(char *string)
 {
-    char newStr[1024];
-    char c;
-    int rotationAmount;
+    char newStr[1024]; //a new char array to store the encrypted message
+    char c; //char variable used to store values to be put into newStr array
+    int rotationAmount; //an int variable that the user inputs to rotate the encrypted message
     
     printf("Please enter your rotation amount: \n");
     scanf("%d", &rotationAmount);
     
-    
+    for (int i = 0; i < 1024; i++) //this for loop will convert any lower case characters into upper case before encryption
+    {
+        
+        if (string[i] >= 97 && string[i] <= 122)
+        {
+            string[i] = (string[i] - 32);
+        }
+    }
     
     for (int i = 0; i < 1024; i++)
     {
@@ -65,12 +73,6 @@ char rotationEncryption(char *string)
             c = 91 - rotationAmount;
             newStr[i] = c; 
         }
-        else if (string[i] >= 97 && string[i] <=122)
-        {
-            c = (string[i] - 32) - rotationAmount;
-            newStr[i] = c;
-        }
-        
         else
         {
             c = string[i] - rotationAmount;
@@ -79,28 +81,19 @@ char rotationEncryption(char *string)
 
     }
     
-    printf("%s \n", newStr);
-    printf("Thank you for running the program. It will now shut down. \n");
-    return *newStr;
+    printf("%s \n", newStr); //prints the new encrypted message
+    printf("Thank you for running the program. It will now shut down. \n"); //displays a message to the user letting them know the program is ending
+    return *newStr; //returns the newStr array (not actually used, it's just so there's absolutely no errors in the console)
 }
 
 char rotationDecryption(char *string)
 {
-    char newStr[1024];
-    char c;
-    int rotationAmount;
+    char newStr[1024]; //a new char array to store the encrypted message
+    char c; //char variable used to store values to be put into newStr array
+    int rotationAmount; 
     
     printf("Please enter your rotation amount: \n");
     scanf("%d", &rotationAmount);
-    
-    for (int i = 0; i < 1024; i++)
-    {
-        
-        if (string[i] >= 97 && string[i] <= 122)
-        {
-            string[i] = (string[i] - 32);
-        }
-    }
     
     for (int i = 0; i < 1024; i++)
     {
@@ -138,21 +131,21 @@ char rotationDecryption(char *string)
 
     }
     
-    printf("%s \n", newStr);
-    printf("Thank you for running the program. It will now shut down. \n");
-    return *newStr;
+    printf("%s \n", newStr); //prints the new encrypted message
+    printf("Thank you for running the program. It will now shut down. \n"); //displays a message to the user letting them know the program is ending
+    return *newStr; //returns the newStr array (not actually used, it's just so there's absolutely no errors in the console)
 }
 
 char substitutionEncryption(char *string)
 {
-    char newStr[1024];
-    char alphabetKey[] = "QWERTYUIOPASDFGHJKLZXCVBNM";
-    char c;
+    char newStr[1024]; //a new char array to store the encrypted message
+    char alphabetKey[26]; //a char array used to store a key. It's given a size of 26 as that is how many letters there are in the alphabet
+    char c; //char variable used to store values to be put into newStr array
     
-    //printf("Please enter your substitution key: \n");
-   // scanf("%s", alphabetKey);
+    printf("Please enter your substitution key: \n");
+    scanf("%s", alphabetKey);
     
-    for (int i = 0; i < 1024; i++)
+    for (int i = 0; i < 1024; i++) //this for loop will convert any lower case characters into upper case before encryption
     {
         
         if (string[i] >= 97 && string[i] <= 122)
@@ -297,15 +290,12 @@ char substitutionEncryption(char *string)
         {
             c = string[i];
             newStr[i] = c;
-        }
-        
-
-        
+        }   
     }
-    printf("%s \n", newStr);
     
-    
-    return *newStr;
+    printf("%s \n", newStr); //prints the new encrypted message
+    printf("Thank you for running the program. It will now shut down. \n"); //displays a message to the user letting them know the program is ending
+    return *newStr; //returns the newStr array (not actually used, it's just so there's absolutely no errors in the console)
     
     
 }
