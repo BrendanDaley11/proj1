@@ -24,7 +24,7 @@ int main()
     printf("[4] Decryption of a message encrypted with a substitution cipher given cipher text and substitutions\n");
     printf("[0] Exit\n");
     printf("Your choice? ");
-    scanf("%d", &option); //scanf to allow the user to enter their option (using numbers 1 through 6. 0 terminates the program.)
+    scanf("%d", &option); //scanf to allow the user to enter their option (using numbers 1 through 4. 0 terminates the program.)
     switch(option)
     {
         case 0: printf("Thank you for running the program, it will now shut down. \n"); break; //exits the program
@@ -56,7 +56,7 @@ char rotationEncryption(char *string)
     
     for (int i = 0; i < 1024; i++)
     {
-        if(string[i] < 65) //if the index value is lower than 65 than it is fine to be added to 
+        if(string[i] < 65)
         {
             c = string[i];
             newStr[i] = c;
@@ -176,7 +176,7 @@ char substitutionEncryption(char *string)
         }
         else if (string[i] == 67) //if the letter is C
         {
-            c = alphabetKey[2]; //and so on
+            c = alphabetKey[2]; //c becomes the third letter of the encrypted key
             newStr[i] = c;
         }
         else if (string[i] == 68) //and so on
@@ -334,7 +334,7 @@ char substitutionDecryption(char *string)
         }
         else if (string[i] == alphabetKey[3]) //and so on
         {
-            c = 68; //c becomes D
+            c = 68;
             newStr[i] = c;
         }
         else if (string[i] == alphabetKey[4])
